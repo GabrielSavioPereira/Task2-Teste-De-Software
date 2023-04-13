@@ -7,15 +7,31 @@ public class atividade24{
         System.out.print("Digite a quantidade de repetições desejadas: ");
         repeticoes = scan.nextInt();
         for(int i = 1; i <= repeticoes; i++){
-            System.out.print("Digite um numero: ");
-            int numero = scan.nextInt();
-            if(numero == 0){
-                System.out.println("Zero");
-            }else if(numero > 0){
-                System.out.println("Número positivo");
-            }else{
-                System.out.println("Número negativo");
+            while (true) {
+                System.out.print("Digite um número: ");
+                while (true) { // enquanto não digitar um número válido, continua no while
+                    try {
+                        Float numero = Float.parseFloat(scan.next());
+                        if(numero == 0){
+                            System.out.println("Zero");
+                            break;
+                        }else if(numero > 0){
+                            System.out.println("Número positivo");
+                            break;
+                        }else{
+                            System.out.println("Número negativo");
+                            break;
+                        }
+                        
+                    } catch (NumberFormatException e){
+                        System.out.println("Caractere Inválido");
+                        System.out.println("Digite novamente");
+                    }
+                    
+               }
+               break;
             }
+            
         }
     }
 }
