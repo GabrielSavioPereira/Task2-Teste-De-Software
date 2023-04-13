@@ -4,34 +4,45 @@ public class atividade24{
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int repeticoes;
-        System.out.print("Digite a quantidade de repetições desejadas: ");
-        repeticoes = scan.nextInt();
-        for(int i = 1; i <= repeticoes; i++){
-            while (true) {
-                System.out.print("Digite um número: ");
-                while (true) { // enquanto não digitar um número válido, continua no while
-                    try {
-                        Float numero = Float.parseFloat(scan.next());
-                        if(numero == 0){
-                            System.out.println("Zero");
-                            break;
-                        }else if(numero > 0){
-                            System.out.println("Número positivo");
-                            break;
-                        }else{
-                            System.out.println("Número negativo");
-                            break;
-                        }
+        while(true){
+            try{
+                System.out.print("Digite a quantidade de repetições desejadas: ");
+                repeticoes = Integer.parseInt(scan.next());
+                for(int i = 1; i <= repeticoes; i++){
+                    while (true) {
+                        System.out.print("Digite um número: ");
+                        while (true) { // enquanto não digitar um número válido, continua no while
+                            try {
+                                Float numero = Float.parseFloat(scan.next());
+                                if(numero == 0){
+                                    System.out.println("Zero");
+                                    break;
+                                }else if(numero > 0){
+                                    System.out.println("Número positivo");
+                                    break;
+                                }else{
+                                    System.out.println("Número negativo");
+                                    break;
+                                }
+                            
+                            } catch (NumberFormatException e){
+                                System.out.println("Caractere Inválido");
+                                System.out.println("Digite novamente");
+                            }
                         
-                    } catch (NumberFormatException e){
-                        System.out.println("Caractere Inválido");
-                        System.out.println("Digite novamente");
+                        }
+                        break;
                     }
                     
-               }
-               break;
+                
+                }
+                break;
+            } catch (NumberFormatException e){
+                System.out.println("Caractere inválido");
+                System.out.println("Digite um Numero para indicar a quantidade");
             }
             
         }
+        System.out.println("Funcionamento Finalizado");
     }
 }
